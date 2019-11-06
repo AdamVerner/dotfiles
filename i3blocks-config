@@ -1,0 +1,130 @@
+# i3blocks config file
+
+# Global properties
+command=~/.config/i3blocks/$BLOCK_NAME/$BLOCK_NAME
+separator_block_width=15
+markup=none
+
+[kbdd_layout]
+interval=persist
+
+# Volume indicator
+[volume]
+label=♪ 
+interval=once
+signal=10
+STEP=5%
+
+# Memory usage
+#
+# The type defaults to "mem" if the instance is not specified.
+[memory]
+label=MEM 
+separator=false
+interval=30
+
+[memory]
+label=SWAP 
+instance=swap
+interval=30
+
+# Disk usage
+[disk]
+label=home: 
+interval=30
+
+# displays the gateway IP address
+[iface]
+label=gw:
+color=#00FF00
+interval=10
+
+# [wifi]
+# #INTERFACE=wlp3s0
+# label=wifi:
+# interval=10
+# separator=false
+
+# [bandwidth]
+# INTERFACE=eth0
+# interval=5
+
+# CPU usage
+[cpu_usage]
+label=CPU 
+interval=1
+min_width=CPU 99.00%
+# command=~/.config/i3blocks/cpu_usage/cpu_usage; [[ -z "${BLOCK_BUTTON}" ]] || gnome-terminal &
+
+# Date Time
+[time]
+command=date '+%Y-%m-%d %H:%M:%S'
+interval=1
+
+# Generic media player support
+#
+# This displays "ARTIST - SONG" if a music is playing.
+# Supported players are: spotify, vlc, audacious, xmms2, mplayer, and others.
+# [mediaplayer]
+# instance=spotify
+# interval=5
+# signal=10
+
+# OpenVPN support
+#
+# Support multiple VPN, with colors.
+# [openvpn]
+# label=vpn: 
+# interval=5
+
+# Temperature
+#
+# Support multiple chips, though lm-sensors.
+# The script may be called with -w and -c switches to specify thresholds,
+# see the script for details.
+#[temperature]
+#label=TEMP
+#interval=10
+
+# Key indicators
+#
+# Add the following bindings to i3 config file:
+#
+# bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
+# bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
+#[keyindicator]
+#KEY=CAPS
+#markup=pango
+#interval=once
+#signal=11
+
+#[keyindicator]
+#KEY=NUM
+#markup=pango
+#interval=once
+#signal=11
+
+[nm-vpn-toggle]
+label=VPN: 
+interval=5
+NAME=Netio
+
+[click]
+full_text=R
+command=redshift -x &>/dev/null; echo R
+color=#FFFFFF
+
+[click22]
+full_text=S
+command=redshift -O 4500 &>/dev/null; echo S
+color=#FFFFFF
+
+[shutdown_menu]
+full_text=
+ROFI_TEXT=Menu:
+ROFI_OPTIONS=-width 11 -location 3 -hide-scrollbar -bw 2
+ENABLE_CONFIRMATIONS=true
+LAUNCHER=rofi
+LOCKSCRIPT=i3lock --color=${BG_COLOR#"#222222"}
+
+

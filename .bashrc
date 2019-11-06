@@ -139,77 +139,13 @@ export PATH="$PATH:/home/home-6/Apps/altera/14.1-web/quartus/bin"
 eval "$(thefuck --alias)"
 
 
+# arrange the desktop
+xrandr --output DisplayPort-0 --primary --mode 1920x1080 --pos 3840x0 --rotate normal --output DVI-D-0 --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-A-0 --mode 1920x1080 --pos 1920x0 --rotate normal
 
-#RESTART SCRIPTS
-alias restart-audio='pulseaudio -k && sudo alsa force-reload'
-
-
-alias sagi='sudo apt-get install'
-alias quit='exit'
-
-#use etiher with true or false
-alias night-light='gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled'
-	
-# make directory(or directories) and change current directory to the first one
-mkc() {
-  mkdir $@
-  cd $1
-}
-
-netio() {
-        snmpset -v 3 -a SHA -A adminadmin -l authPriv -u admin -x AES -X adminadmin 192.168.20.50 iso.3.6.1.4.1.47952.1.1.1.5.$1 i $2
-}
-
-alias wifi-status='nmcli d wifi'
+# configure propper keyobards
+setxkbmap -option 'grp:win_space_toggle'
+setxkbmap -layout 'us,cz(qwerty)'
 
 
-# pipable copy and paste
-alias c="xclip -selection clipboard"
-alias p="xclip -o -selection clipboard"
+alias rsa-ctf-tool='/home/home-6/Apps/RsaCtfTool/bin/python /home/home-6/Apps/RsaCtfTool/RsaCtfTool.py'
 
-
-extract () {
-   if [ -f $1 ] ; then
-       case $1 in
-           *.tar.bz2)   tar xvjf $1    ;;
-           *.tar.gz)    tar xvzf $1    ;;
-           *.bz2)       bunzip2 $1     ;;
-           *.rar)       unrar x $1       ;;
-           *.gz)        gunzip $1      ;;
-           *.tar)       tar xvf $1     ;;
-           *.tbz2)      tar xvjf $1    ;;
-           *.tgz)       tar xvzf $1    ;;
-           *.zip)       unzip $1       ;;
-           *.Z)         uncompress $1  ;;
-           *.7z)        7z x $1        ;;
-           *)           echo "don't know how to extract '$1'..." ;;
-       esac
-   else
-       echo "'$1' is not a valid file!"
-   fi
- }
-
-
-
-
-# color for manpages
-export LESS_TERMCAP_mb=$'\E[01;31m'
-export LESS_TERMCAP_md=$'\E[01;31m'
-export LESS_TERMCAP_me=$'\E[0m'
-export LESS_TERMCAP_se=$'\E[0m'
-export LESS_TERMCAP_so=$'\E[01;44;33m'
-export LESS_TERMCAP_ue=$'\E[0m'
-export LESS_TERMCAP_us=$'\E[01;32m'
-
-
-
-alias free='free -h'
-
-alias l='ls -l'
-
-
-alias dmesg='dmesg -wH'
-
-alias turn-on-stereo='~/99-myhooks.sh resume'
-
-alias darktable-purge-non-existing='/home/home-6/purge_non_existing_images.sh'
