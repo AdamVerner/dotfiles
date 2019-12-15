@@ -169,13 +169,6 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-
-# i3blocks support
-bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
-bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
-
 # volume control
 bindsym XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 5%+ && pkill -RTMIN+10 i3blocks && 
 bindsym XF86AudioLowerVolume exec amixer -q -D pulse sset Master 5%- && pkill -RTMIN+10 i3blocks
@@ -200,6 +193,12 @@ exec firefox
 exec spotify
 exec discord
 exec terminal
+
+exec /home/home-6/.local/share/JetBrains/Toolbox/bin/jetbrains-toolbox --minimize
+exec /home/home-6/Apps/ActivityWatch/aw-qt
+
+# start clipboard manager
+exec parcellite
 
 # dont switch focus when accidenly moving mouse from workspace
 focus_follows_mouse no
