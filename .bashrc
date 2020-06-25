@@ -5,7 +5,7 @@
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
-      *) return;;
+#      *) return;;
 esac
 
 # don't put duplicate lines or lines starting with space in the history.
@@ -136,12 +136,6 @@ export IDF_PATH="/home/home-6/Documents/Programming/esp/esp-idf"
 export PATH="$PATH:/home/home-6/Apps/altera/14.1-web/quartus/bin"
 
 
-eval "$(thefuck --alias)"
-
-
-# arrange the desktop
-xrandr --output DisplayPort-0 --primary --mode 1920x1080 --pos 3840x0 --rotate normal --output DVI-D-0 --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-A-0 --mode 1920x1080 --pos 1920x0 --rotate normal
-
 # configure propper keyobards
 setxkbmap -option 'grp:win_space_toggle'
 setxkbmap -layout 'us,cz(qwerty)'
@@ -149,3 +143,20 @@ setxkbmap -layout 'us,cz(qwerty)'
 
 alias rsa-ctf-tool='/home/home-6/Apps/RsaCtfTool/bin/python /home/home-6/Apps/RsaCtfTool/RsaCtfTool.py'
 
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+# __conda_setup="$('/home/home-6/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/home/home-6/miniconda3/etc/profile.d/conda.sh" ]; then
+#         . "/home/home-6/miniconda3/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/home/home-6/miniconda3/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
+# <<< conda initialize <<<
+
+
+eval "$(thefuck --alias)"

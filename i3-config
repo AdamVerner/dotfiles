@@ -29,6 +29,9 @@ font pango:monospace 9
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+hide_edge_borders vertical
+
+
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
@@ -81,7 +84,7 @@ bindsym $mod+t layout tabbed
 bindsym $mod+s layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+f floating toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
@@ -118,10 +121,10 @@ bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
 
 # set workspaces for monitors
-workspace $ws1 output DVI-D-0
-workspace $ws2 output HDMI-A-0
-workspace $ws3 output DisplayPort-0
-
+workspace $ws1 output HDMI-A-0
+workspace $ws3 output HDMI-A-0
+workspace $ws2 output DVI-D-0
+workspace $ws4 output DVI-D-0
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
@@ -144,33 +147,33 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+    # These bindings trigger as soon as you enter the resize mode
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+    # Pressing left will shrink the window’s width.
+    # Pressing right will grow the window’s width.
+    # Pressing up will shrink the window’s height.
+    # Pressing down will grow the window’s height.
+    bindsym j resize shrink width 10 px or 10 ppt
+    bindsym k resize grow height 10 px or 10 ppt
+    bindsym l resize shrink height 10 px or 10 ppt
+    bindsym semicolon resize grow width 10 px or 10 ppt
 
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+    # same bindings, but for the arrow keys
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
 
-        # back to normal: Enter or Escape or $mod+r
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
+    # back to normal: Enter or Escape or $mod+r
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
 }
 
 bindsym $mod+r mode "resize"
 
 # volume control
-bindsym XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 5%+ && pkill -RTMIN+10 i3blocks && 
+bindsym XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 5%+ && pkill -RTMIN+10 i3blocks
 bindsym XF86AudioLowerVolume exec amixer -q -D pulse sset Master 5%- && pkill -RTMIN+10 i3blocks
 bindsym XF86AudioMute exec amixer -q -D pulse sset Master toggle && pkill -RTMIN+10 i3blocks
 
@@ -182,29 +185,29 @@ bindsym XF86AudioPrev exec playerctl previous
 
 
 # fix display layout
-exec xrandr --output DisplayPort-0 --primary --mode 1920x1080 --pos 3840x0 --rotate normal --output DVI-D-0 --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-A-0 --mode 1920x1080 --pos 1920x0 --rotate normal
+exec ~/.screenlayout/default.sh
+
+exec --no-startup-id nitrogen --set-auto /home/home-6/.config/i3/wywh.png --head=0 && nitrogen --set-auto /home/home-6/.config/i3/wywh.png --head=1
+
 
 # configure propper keyobards
 exec setxkbmap -option 'grp:win_space_toggle'
 exec setxkbmap -layout 'us,cz(qwerty)'
 
 # start default apps
-exec firefox
-exec spotify
-exec discord
-exec terminal
-
 exec /home/home-6/.local/share/JetBrains/Toolbox/bin/jetbrains-toolbox --minimize
 exec /home/home-6/Apps/ActivityWatch/aw-qt
 
 # start clipboard manager
 exec parcellite
 
+exec telegram-desktop
+
 # dont switch focus when accidenly moving mouse from workspace
 focus_follows_mouse no
 
 bar {
-        status_command i3blocks
+    status_command i3blocks
 }
 
 
